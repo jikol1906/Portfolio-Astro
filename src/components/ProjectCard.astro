@@ -1,0 +1,34 @@
+---
+import Button from '../components/Button.astro';
+import Prose from '../layouts/Prose.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  websiteUrl: string;
+  githubUrl: string;
+}
+const { title, description, websiteUrl, githubUrl } = Astro.props;
+---
+
+<div class="bg-secondary text-center bg-[url('src/img/card-bg.svg')] bg-contain bg-no-repeat p-6 rounded-lg shadow-md relative grid grid-rows-[1fr]">
+
+  <Prose>
+    <h3>{title}</h3>
+    <p >{description}</p>
+    <div class="mb-4">
+      <h4 class="text-lg font-semibold mb-2">Technologies used</h4>
+      <div class="flex flex-wrap gap-2">
+        <slot name="icons" />
+      </div>
+    </div>
+  </Prose>
+
+
+  
+  <!-- Links for the project -->
+  <div class="mt-4 space-x-4 grid grid-cols-2">
+    <Button href={websiteUrl}>Visit Website</Button>
+    <Button href={githubUrl}>Visit Github</Button>
+  </div>
+</div>

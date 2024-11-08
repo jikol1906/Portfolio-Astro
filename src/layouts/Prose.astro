@@ -1,0 +1,12 @@
+---
+interface ProseProps {
+  class?: string;
+}
+
+const { class: additionalClass = '' } = Astro.props;
+---
+<div
+  class={`prose prose-invert mx-auto md:prose-lg prose-headings:text-center md:prose-h3:text-left md:prose-h4:text-left ${additionalClass}`}
+>
+  <slot />
+</div>

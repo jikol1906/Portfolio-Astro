@@ -10,6 +10,9 @@ export default {
 		  white: "#fff",
 		  black: "#000"
 		},
+		backgroundImage: {
+			'card-bg': "url('/img/card-bg.svg')",
+		},
 		fontFamily: {
 		  poppins: ["Poppins", "sans-serif"]
 		},

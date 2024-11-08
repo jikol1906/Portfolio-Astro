@@ -1,0 +1,19 @@
+---
+
+export interface Props {
+  id: string;
+  addTopPadding?: boolean;
+  addBottomPadding?: boolean;
+}
+
+const { id, addTopPadding = true, addBottomPadding = true } = Astro.props;
+
+const paddingClasses = [
+  addTopPadding ? 'pt-32' : '',
+  addBottomPadding ? 'pb-32' : ''
+].join(' ').trim();
+---
+
+<section id={id} class={paddingClasses}>
+    <slot />
+</section>
