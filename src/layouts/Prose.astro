@@ -6,7 +6,7 @@ interface ProseProps {
 const { class: additionalClass = '' } = Astro.props;
 ---
 <div
-  class={`prose prose-invert mx-auto md:prose-lg prose-headings:text-center md:prose-h3:text-left md:prose-h4:text-left ${additionalClass}`}
+  class={`prose prose-invert prose-h2:text-4xl prose-h2:tracking-widest prose-h2:uppercase ${additionalClass}`}
 >
   <slot />
 </div>

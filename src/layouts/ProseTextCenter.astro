@@ -1,0 +1,14 @@
+---
+import Prose from "./Prose.astro";
+
+interface ProseProps {
+  class?: string;
+}
+
+const { class: additionalClass = '' } = Astro.props;
+
+---
+
+<Prose class={`mx-auto prose-headings:text-center ${additionalClass}`}>
+    <slot/>
+</Prose>

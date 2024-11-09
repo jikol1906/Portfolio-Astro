@@ -1,19 +1,20 @@
 ---
-
 export interface Props {
   id: string;
   addTopPadding?: boolean;
   addBottomPadding?: boolean;
+  fullWidth?: boolean;
 }
 
-const { id, addTopPadding = true, addBottomPadding = true } = Astro.props;
+const { id, addTopPadding = true, addBottomPadding = true, fullWidth = false } = Astro.props;
 
-const paddingClasses = [
+const sectionClasses = [
   addTopPadding ? 'pt-32' : '',
-  addBottomPadding ? 'pb-32' : ''
+  addBottomPadding ? 'pb-32' : '',
+  fullWidth ? '' : 'max-w-4xl'
 ].join(' ').trim();
 ---
 
-<section id={id} class={paddingClasses}>
+<section id={id} class={`mx-auto ${sectionClasses}`}>
     <slot />
 </section>

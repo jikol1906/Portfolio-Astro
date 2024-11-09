@@ -1,25 +1,37 @@
 ---
 import Button from '../components/Button.astro';
 import Prose from '../layouts/Prose.astro';
+import type { Technologies } from '../Sections/Projects/Projects.astro';
+
+const icons = import.meta.glob('../../Icons/*.astro', { eager: true });
+
+console.log(icons)
 
 export interface Props {
   title: string;
   description: string;
   websiteUrl: string;
   githubUrl: string;
+  technologies: Technologies[]
 }
-const { title, description, websiteUrl, githubUrl } = Astro.props;
+
+const { title, description, websiteUrl, githubUrl, technologies } = Astro.props;
+
+const TechnologiesMap = {
+  React: '../../Icons/React.astro',
+  Typescript: '../../Icons/Typescript.astro'
+} as Record<Technologies, string>;
+
 ---
 
-<div class="bg-secondary text-center bg-[url('src/img/card-bg.svg')] bg-contain bg-no-repeat p-6 rounded-lg shadow-md relative grid grid-rows-[1fr]">
+<div class="bg-secondary text-center bg-[url('src/img/card-bg.svg')] bg-contain bg-no-repeat p-8 rounded-lg shadow-md relative grid grid-rows-[1fr]">
 
-  <Prose>
+  <Prose class="flex flex-col gap-4 prose-headings:m-0">
     <h3>{title}</h3>
-    <p >{description}</p>
+    <p class="flex-1 mb-0" >{description}</p>
     <div class="mb-4">
       <h4 class="text-lg font-semibold mb-2">Technologies used</h4>
-      <div class="flex flex-wrap gap-2">
-        <slot name="icons" />
+      <div class="flex gap-2 justify-center py-4">
       </div>
     </div>
   </Prose>

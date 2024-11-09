@@ -1,11 +1,12 @@
 ---
 import {Content as AboutMe} from '../../content/aboutme/aboutme.md';
 import Prose from '../../layouts/Prose.astro';
+import ProseTextCenter from '../../layouts/ProseTextCenter.astro';
 import Section from '../../layouts/Section.astro';
 ---
 
 <Section addTopPadding={false} id="about">
-    <Prose>
+    <ProseTextCenter class="md:prose-h3:text-left md:prose-h4:text-left">
         <AboutMe/>
-    </Prose>
+    </ProseTextCenter>
 </Section>
