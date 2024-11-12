@@ -1,0 +1,30 @@
+[
+    {
+      "title": "Sentence Guesser",
+      "description": "Sentence Guesser works by taking an English sentence that you provide, translating it to German with DeepL, then returning it to you in the form of a fill-in-the-blanks exercise.",
+      "websiteUrl": "test",
+      "githubUrl": "test",
+      "technologies": ["React", "Typescript", "Netlify"]
+    },
+    {
+      "title": "Fretboard Workout",
+      "description": "Tool I made to help myself learn all the notes on a guitar's fretboard",
+      "websiteUrl": "test",
+      "githubUrl": "test",
+      "technologies": ["React"]
+    },
+    {
+      "title": "Fretboard Workout",
+      "description": "Tool I made to help myself learn all the notes on a guitar's fretboard",
+      "websiteUrl": "test",
+      "githubUrl": "test",
+      "technologies": ["React"]
+    },
+    {
+      "title": "Guitar Note Finder",
+      "description": "Another tool made for learning the fretboard of a guitarp",
+      "websiteUrl": "test",
+      "githubUrl": "test",
+      "technologies": ["Javascript"]
+    }
+  ]

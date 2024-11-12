@@ -1,9 +1,9 @@
 ---
-import ProjectCard from "../../components/ProjectCard.astro";
+import ProjectCard, { type Technologies } from "../../components/ProjectCard.astro";
 import ProseTextCenter from "../../layouts/ProseTextCenter.astro";
 import Section from "../../layouts/Section.astro";
+import projects from './projects.json';
 
-export type Technologies = 'React' | 'Typescript'
 
 ---
 
@@ -12,12 +12,14 @@ export type Technologies = 'React' | 'Typescript'
     <h2>Projects</h2>
   </ProseTextCenter>
   <div class="mx-auto grid grid-cols-1 gap-4 py-10 md:grid-cols-2">
-    <ProjectCard
-      title="test"
-      description="test"
-      websiteUrl="test"
-      githubUrl="test"
-      technologies={['React']}
-    />
+    {projects.map((project) => (
+      <ProjectCard
+        title={project.title}
+        description={project.description}
+        websiteUrl={project.websiteUrl}
+        githubUrl={project.githubUrl}
+        technologies={project.technologies as Technologies[]}
+      />
+    ))}
   </div>
 </Section>

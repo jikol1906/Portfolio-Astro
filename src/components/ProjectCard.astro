@@ -1,11 +1,9 @@
 ---
 import Button from '../components/Button.astro';
 import Prose from '../layouts/Prose.astro';
-import type { Technologies } from '../Sections/Projects/Projects.astro';
+import { Icon } from 'astro-icon/components';
 
-const icons = import.meta.glob('../../Icons/*.astro', { eager: true });
-
-console.log(icons)
+export type Technologies = keyof typeof technologyIcons;
 
 export interface Props {
   title: string;
@@ -15,23 +13,33 @@ export interface Props {
   technologies: Technologies[]
 }
 
+// Type the technologyIcons object
+const technologyIcons = {
+  React: 'logos:react',
+  Typescript: 'logos:typescript-icon',
+  Tailwind: 'logos:tailwindcss-icon',
+  Netlify: 'logos:netlify-icon',
+  Javascript: 'logos:javascript'
+};
+
 const { title, description, websiteUrl, githubUrl, technologies } = Astro.props;
 
-const TechnologiesMap = {
-  React: '../../Icons/React.astro',
-  Typescript: '../../Icons/Typescript.astro'
-} as Record<Technologies, string>;
+const iconsToRender = technologies.map(tech => technologyIcons[tech]);
+
 
 ---
 
-<div class="bg-secondary text-center bg-[url('src/img/card-bg.svg')] bg-contain bg-no-repeat p-8 rounded-lg shadow-md relative grid grid-rows-[1fr]">
+<div class="bg-dark rounded-bl-3xl rounded-tr-3xl text-center bg-[url('src/img/card-bg.svg')] bg-contain bg-no-repeat p-8 shadow-md relative grid grid-rows-[1fr]">
 
   <Prose class="flex flex-col gap-4 prose-headings:m-0">
     <h3>{title}</h3>
     <p class="flex-1 mb-0" >{description}</p>
     <div class="mb-4">
       <h4 class="text-lg font-semibold mb-2">Technologies used</h4>
-      <div class="flex gap-2 justify-center py-4">
+      <div class="flex gap-3 justify-center py-4">
+        {iconsToRender.map(iconName => (
+          <Icon name={iconName} class="h-11 w-11" />
+        ))}
       </div>
     </div>
   </Prose>
