@@ -4,17 +4,20 @@ export interface Props {
   addTopPadding?: boolean;
   addBottomPadding?: boolean;
   fullWidth?: boolean;
+  class?: string; // New class prop
 }
 
-const { id, addTopPadding = true, addBottomPadding = true, fullWidth = false } = Astro.props;
+const { id, addTopPadding = true, addBottomPadding = true, fullWidth = false, class: customClass = '' } = Astro.props;
 
 const sectionClasses = [
   addTopPadding ? 'pt-32' : '',
   addBottomPadding ? 'pb-32' : '',
-  fullWidth ? '' : 'max-w-4xl'
+  customClass // Add the custom class here
 ].join(' ').trim();
 ---
 
-<section id={id} class={`mx-auto ${sectionClasses} px-4`}>
+<section id={id} class={`px-4 ${sectionClasses}`}>
+  <div class={`mx-auto ${fullWidth ? '' : 'max-w-4xl'}`}>
     <slot />
+  </div>
 </section>

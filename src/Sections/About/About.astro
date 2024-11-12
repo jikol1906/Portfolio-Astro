@@ -1,12 +1,27 @@
 ---
-import {Content as AboutMe} from '../../content/aboutme/aboutme.md';
-import Prose from '../../layouts/Prose.astro';
+import { Content as AboutMe } from '../../content/aboutme/aboutme.md';
 import ProseTextCenter from '../../layouts/ProseTextCenter.astro';
 import Section from '../../layouts/Section.astro';
+import { Icon } from 'astro-icon/components';
+
+// Define an array of technologies with icon names and labels
+const technologies = [
+  { name: 'React', icon: 'logos:react' },
+  { name: 'Tailwind', icon: 'logos:tailwindcss-icon' },
+  { name: 'Javascript', icon: 'logos:javascript' },
+];
 ---
 
-<Section addTopPadding={false} id="about">
-    <ProseTextCenter class="md:prose-h3:text-left md:prose-h4:text-left">
-        <AboutMe/>
-    </ProseTextCenter>
+<Section addTopPadding={false} id="about" class="bg-secondary">
+  <ProseTextCenter class="md:prose-h3:text-left md:prose-h4:text-left">
+    <AboutMe />
+    <div class="p-4 flex flex-wrap gap-4">
+      {technologies.map((tech) => (
+        <div class="bg-dark py-4 px-7 flex rounded-bl-xl rounded-tr-xl items-center gap-3 text-sm">
+          <Icon name={tech.icon} class="w-5 h-5" />
+          {tech.name}
+        </div>
+      ))}
+    </div>
+  </ProseTextCenter>
 </Section>
