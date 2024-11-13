@@ -7,11 +7,11 @@ import projects from './projects.json';
 
 ---
 
-<Section id="projects">
+<Section id="projects" class="bg-[url('src/img/timeline-bg.svg')] bg-no-repeat bg-[length:100%_500px]">
   <ProseTextCenter>
     <h2>Projects</h2>
   </ProseTextCenter>
-  <div class="mx-auto grid grid-cols-1 gap-4 py-10 md:grid-cols-2">
+  <div class="mx-auto grid grid-cols-1 gap-4 py-10 sm:grid-cols-2">
     {projects.map((project) => (
       <ProjectCard
         title={project.title}
