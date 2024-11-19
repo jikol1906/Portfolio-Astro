@@ -7,21 +7,30 @@ import { Icon } from 'astro-icon/components';
 // Define an array of technologies with icon names and labels
 const technologies = [
   { name: 'React', icon: 'logos:react' },
+  { name: 'CSS', icon: 'vscode-icons:file-type-css' },
+  { name: 'HTML', icon: 'vscode-icons:file-type-html' },
   { name: 'Tailwind', icon: 'logos:tailwindcss-icon' },
+  { name: 'Git', icon: 'vscode-icons:file-type-git' },
   { name: 'Javascript', icon: 'logos:javascript' },
+  { name: 'Typescript', icon: 'logos:typescript-icon' },
+  { name: 'Cypress', icon: 'vscode-icons:file-type-cypress' },
+  { name: 'Playwright', icon: 'vscode-icons:file-type-playwright' },
+  { name: 'Sass', icon: 'vscode-icons:file-type-sass' },
+  { name: 'Svelte', icon: 'vscode-icons:file-type-svelte' },
+  { name: 'Firebase', icon: 'vscode-icons:file-type-firebase' },
 ];
 ---
 
 <Section addTopPadding={false} id="about" class="bg-secondary">
   <ProseTextCenter class="md:prose-h3:text-left md:prose-h4:text-left">
     <AboutMe />
-    <div class="p-4 flex flex-wrap gap-4">
-      {technologies.map((tech) => (
-        <div class="bg-dark py-4 px-7 flex rounded-bl-xl rounded-tr-xl items-center gap-3 text-sm">
-          <Icon name={tech.icon} class="w-5 h-5" />
-          {tech.name}
-        </div>
-      ))}
-    </div>
+    <div class="p-4 flex flex-wrap gap-2 sm:gap-4">
+    {technologies.map((tech) => (
+      <div class="bg-dark py-2 px-4 sm:py-3 md:py-4 md:px-5 flex rounded-custom-xl items-center gap-3 text-xs sm:text-sm md:text-base">
+        <Icon name={tech.icon} class="w-6 h-6 md:w-8 md:h-8" />
+        {tech.name}
+      </div>
+    ))}
+  </div>
   </ProseTextCenter>
 </Section>
