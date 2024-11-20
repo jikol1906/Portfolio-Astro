@@ -21,4 +21,4 @@
 
 - Created automated tests that enhanced software reliability, reduced downtime due to bugs, and improved overall development efficiency.
 
-
+### Technologies Used
