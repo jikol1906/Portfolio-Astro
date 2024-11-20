@@ -10,6 +10,15 @@ export default {
         white: "#fff",
         black: "#000"
       },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+      },
+      animation: {
+        float: 'float 3s ease-in-out infinite',
+      },
       borderRadius: {
         "custom-xl": "0 1rem 0 1rem" // Customizing the corners (tr, tl, br, bl).
       },
