@@ -20,7 +20,8 @@ export default {
         float: 'float 3s ease-in-out infinite',
       },
       borderRadius: {
-        "custom-xl": "0 1rem 0 1rem" // Customizing the corners (tr, tl, br, bl).
+        "custom-xl": "0 1rem 0 1rem", // Customizing the corners (tr, tl, br, bl).
+        "custom-sm": "0 .3rem 0 .3rem" // Customizing the corners (tr, tl, br, bl).
       },
       backgroundImage: {
         "card-bg": "url('/img/card-bg.svg')"
