@@ -1,0 +1,26 @@
+import Section from '../../layouts/Section.astro';
+import Technologies from './Technologies.astro';
+import Prose from '../../layouts/ProseTextCenter.astro';
+
+<Section addTopPadding={false} id="about" class="bg-secondary">
+  <Prose class="md:prose-h3:text-left md:prose-h4:text-left">
+    ## About me
+
+    ### Skills and Expertise
+
+    - Proficient in HTML5, CSS3, and JavaScript (ES6+), with a strong understanding of core concepts such as prototypes,
+    closures, the event loop, and the DOM.
+    - Skilled in React, with hands-on experience building and maintaining React applications.
+    - I have a strong sense of creating beautiful designs and extensive experience using Figma.
+    - Developed automated end-to-end tests to ensure software quality.
+
+    ### Professional Experience
+
+    #### Frontend Developer: iComps GmbH
+    - Maintained and extended a dynamic React application.
+    - Created automated tests that enhanced software reliability.
+
+    ### Technologies Used
+    <Technologies />
+  </Prose>
+</Section>

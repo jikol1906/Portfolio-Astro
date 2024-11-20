@@ -1,7 +1,4 @@
 ---
-import { Content as AboutMe } from '../../content/aboutme/aboutme.md';
-import ProseTextCenter from '../../layouts/ProseTextCenter.astro';
-import Section from '../../layouts/Section.astro';
 import { Icon } from 'astro-icon/components';
 
 // Define an array of technologies with icon names and labels
@@ -20,19 +17,15 @@ const technologies = [
   { name: 'Firebase', icon: 'vscode-icons:file-type-firebase' },
   { name: 'Netlify', icon: 'vscode-icons:file-type-netlify' },
   { name: 'Astro', icon: 'vscode-icons:file-type-astro' },
+  { name: 'Gitlab', icon: 'vscode-icons:file-type-gitlab' },
 ];
 ---
 
-<Section addTopPadding={false} id="about" class="bg-secondary">
-  <ProseTextCenter class="md:prose-h3:text-left md:prose-h4:text-left">
-    <AboutMe />
-    <ul class="not-prose py-4 flex flex-wrap gap-1 sm:gap-2 justify-center md:justify-start">
-    {technologies.map((tech) => (
-      <li class="bg-dark py-2 px-4 sm:py-3 md:py-4 md:px-5 flex rounded-custom-xl items-center gap-3 text-xs sm:text-sm md:text-base">
-        <Icon name={tech.icon} class="w-4 h-4 md:w-8 md:h-8" />
-        {tech.name}
-      </li>
-    ))}
-  </ul>
-  </ProseTextCenter>
-</Section>
+<ul class="not-prose py-4 flex flex-wrap gap-1 sm:gap-2 justify-center md:justify-start">
+  {technologies.map((tech) => (
+    <li class="bg-dark py-2 px-4 sm:py-3 md:py-4 md:px-5 flex rounded-custom-xl items-center gap-3 text-xs sm:text-sm md:text-base">
+      <Icon name={tech.icon} class="w-4 h-4 md:w-8 md:h-8" />
+      {tech.name}
+    </li>
+  ))}
+</ul>

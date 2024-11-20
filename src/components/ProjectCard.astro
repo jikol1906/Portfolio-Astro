@@ -15,11 +15,12 @@ export interface Props {
 
 // Type the technologyIcons object
 const technologyIcons = {
-  React: 'logos:react',
-  Typescript: 'logos:typescript-icon',
+  React: 'vscode-icons:file-type-reactjs',
+  Typescript: 'vscode-icons:file-type-typescript',
   Tailwind: 'logos:tailwindcss-icon',
-  Netlify: 'logos:netlify-icon',
-  Javascript: 'logos:javascript'
+  Netlify: 'vscode-icons:file-type-netlify',
+  Javascript: 'vscode-icons:file-type-js',
+  Astro: 'vscode-icons:file-type-astro'
 };
 
 const { title, description, websiteUrl, githubUrl, technologies } = Astro.props;
@@ -35,7 +36,7 @@ const iconsToRender = technologies.map(tech => technologyIcons[tech]);
     <p class="flex-1 mb-0" >{description}</p>
     <div class="mb-4">
       <h4 class="text-lg font-semibold mb-2">Technologies used</h4>
-      <div class="flex gap-3 justify-center py-4">
+      <div class="flex gap-1 justify-center pt-3">
         {iconsToRender.map(iconName => (
           <Icon name={iconName} class="h-11 w-11" />
         ))}
@@ -46,7 +47,7 @@ const iconsToRender = technologies.map(tech => technologyIcons[tech]);
 
   
   <!-- Links for the project -->
-  <div class="mt-4 grid gap-4 md:grid-cols-2">
+  <div class="mt-1 grid gap-4 md:grid-cols-2">
     <Button href={websiteUrl}>Visit Website</Button>
     <Button href={githubUrl}>Visit Github</Button>
   </div>
