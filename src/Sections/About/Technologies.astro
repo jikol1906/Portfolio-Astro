@@ -1,29 +1,13 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { technologies } from '../../constants/Technologies';
 
-// Define an array of technologies with icon names and labels
-const technologies = [
-  { name: 'React', icon: 'logos:react' },
-  { name: 'CSS', icon: 'vscode-icons:file-type-css' },
-  { name: 'HTML', icon: 'vscode-icons:file-type-html' },
-  { name: 'Node.js', icon: 'vscode-icons:file-type-node' },
-  { name: 'Tailwind', icon: 'logos:tailwindcss-icon' },
-  { name: 'Git', icon: 'vscode-icons:file-type-git' },
-  { name: 'Astro', icon: 'vscode-icons:file-type-astro' },
-  { name: 'Javascript', icon: 'logos:javascript' },
-  { name: 'Typescript', icon: 'logos:typescript-icon' },
-  { name: 'Cypress', icon: 'vscode-icons:file-type-cypress' },
-  { name: 'Playwright', icon: 'vscode-icons:file-type-playwright' },
-  { name: 'Sass', icon: 'vscode-icons:file-type-sass' },
-  { name: 'Svelte', icon: 'vscode-icons:file-type-svelte' },
-  { name: 'Firebase', icon: 'vscode-icons:file-type-firebase' },
-  { name: 'Netlify', icon: 'vscode-icons:file-type-netlify' },
-  { name: 'Gitlab', icon: 'vscode-icons:file-type-gitlab' },
-];
+
+
 ---
 
 <ul class="not-prose py-4 flex flex-wrap gap-1 sm:gap-2 justify-center md:justify-start">
-  {technologies.map((tech) => (
+  {Object.values(technologies).map((tech) => (
     <li class="bg-dark py-2 px-4 sm:py-3 md:py-4 md:px-5 flex rounded-custom-sm md:rounded-custom-xl items-center gap-3 text-xs sm:text-sm md:text-base">
       <Icon name={tech.icon} class="w-4 h-4 md:w-8 md:h-8" />
       {tech.name}

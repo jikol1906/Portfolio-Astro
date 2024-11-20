@@ -1,5 +1,6 @@
 ---
-import ProjectCard, { type Technologies } from "../../components/ProjectCard.astro";
+import ProjectCard from "../../components/ProjectCard.astro";
+import type { TechnologyName } from "../../constants/Technologies";
 import ProseTextCenter from "../../layouts/ProseTextCenter.astro";
 import Section from "../../layouts/Section.astro";
 
@@ -8,7 +9,7 @@ type Project = {
   description: string,
   websiteUrl: string,
   githubUrl: string,
-  technologies: Array<Technologies>,
+  technologies: Array<TechnologyName>,
 }
 
 const projects : Project[] = [
@@ -17,47 +18,54 @@ const projects : Project[] = [
     description: "Sentence Guesser works by taking an English sentence that you provide, translating it to German with DeepL, then returning it to you in the form of a fill-in-the-blanks exercise. I used this personally to practice my german",
     websiteUrl: "https://inspiring-mooncake-9dde2e.netlify.app/",
     githubUrl: "https://github.com/jikol1906/sentence-guesser-react",
-    technologies: ["React", "Typescript"],
-  },
-  {
-    title: "Personal Website",
-    description: "The website you're on. Made using Astro.js",
-    websiteUrl: "test",
-    githubUrl: "test",
-    technologies: ["Astro", 'Netlify'],
+    technologies: ["react", "typescript"],
   },
   {
     title: "Visual Sorter",
     description: "Tool I made as a part of a school exercise to visualize\nsorting algorithms. Supports Insertion Sort, Selection Sort and Bubble Sort",
     websiteUrl: "https://jolly-mayer-7c5bfd.netlify.app/",
     githubUrl: "https://github.com/jikol1906/visualSorter",
-    technologies: ["Typescript", "Netlify"],
+    technologies: ["typescript", "netlify"],
   },
   {
     title: "Fretboard Workout",
     description: "Tool I made to help myself learn all the notes on a guitar's fretboard",
     websiteUrl: "https://infallible-goodall-e54fc8.netlify.app/",
     githubUrl: "https://github.com/jikol1906/fretboard-workout",
-    technologies: ["React", "Typescript"],
+    technologies: ["react", "typescript"],
+  },
+  {
+    title: "Personal Website",
+    description: "The website you're on. Made using Astro.js",
+    websiteUrl: "",
+    githubUrl: "test",
+    technologies: ["astro", 'netlify'],
   },
   {
     title: "Guitar Note Finder",
     description: "Another tool made for learning the fretboard of a guitar",
-    websiteUrl: "test",
-    githubUrl: "test",
-    technologies: ["Javascript"],
+    websiteUrl: "https://github.com/jikol1906/findNotePractice",
+    githubUrl: "https://frosty-hodgkin-050557.netlify.app/",
+    technologies: ["javascript"],
+  },
+  {
+    title: "Rock Paper Scissors Game",
+    description: "Game I made as part of a Frontendmentors.io challenge",
+    websiteUrl: "https://frosty-hodgkin-050557.netlify.app/",
+    githubUrl: "https://github.com/jikol1906/rock-paper-scissor-react/",
+    technologies: ["react"],
   },
   {
     title: "SES-Quiz",
     description: "Quiz I made for Universität Erfurt as a part of International Developmental Language Disorder Awareness Day",
     websiteUrl: "https://jikol1906.github.io/quiz/",
     githubUrl: "https://github.com/jikol1906/quiz",
-    technologies: ["Javascript"],
+    technologies: ["javascript"],
   },
 ];
 ---
 
-<Section id="projects" class="bg-[url('src/img/timeline-bg.svg')] bg-no-repeat bg-[length:100%_500px]">
+<Section id="projects" class="bg-[url('/img/timeline-bg.svg')] bg-no-repeat bg-[length:100%_500px]">
   <ProseTextCenter>
     <h2>Projects</h2>
   </ProseTextCenter>
@@ -68,7 +76,7 @@ const projects : Project[] = [
         description={project.description}
         websiteUrl={project.websiteUrl}
         githubUrl={project.githubUrl}
-        technologies={project.technologies as Technologies[]}
+        technologiesUsed={project.technologies}
       />
     ))}
   </div>

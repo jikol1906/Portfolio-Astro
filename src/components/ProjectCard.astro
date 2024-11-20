@@ -1,44 +1,34 @@
 ---
 import Button from '../components/Button.astro';
+import {technologies, type TechnologyName } from '../constants/Technologies';
 import Prose from '../layouts/Prose.astro';
 import { Icon } from 'astro-icon/components';
-
-export type Technologies = keyof typeof technologyIcons;
 
 export interface Props {
   title: string;
   description: string;
   websiteUrl: string;
   githubUrl: string;
-  technologies: Technologies[]
+  technologiesUsed: TechnologyName[]
 }
 
-// Type the technologyIcons object
-const technologyIcons = {
-  React: 'vscode-icons:file-type-reactjs',
-  Typescript: 'vscode-icons:file-type-typescript',
-  Tailwind: 'logos:tailwindcss-icon',
-  Netlify: 'vscode-icons:file-type-netlify',
-  Javascript: 'vscode-icons:file-type-js',
-  Astro: 'vscode-icons:file-type-astro'
-};
 
-const { title, description, websiteUrl, githubUrl, technologies } = Astro.props;
 
-const iconsToRender = technologies.map(tech => technologyIcons[tech]);
+const { title, description, websiteUrl, githubUrl, technologiesUsed } = Astro.props as Props;
+
 
 
 ---
 
-<div class="bg-dark rounded-custom-xl text-center bg-[url('src/img/card-bg.svg')] bg-contain bg-no-repeat p-8 shadow-md relative grid grid-rows-[1fr]">
+<div class="bg-dark min-h-[400px] rounded-custom-xl text-center bg-[url('/img/card-bg.svg')] bg-contain bg-no-repeat p-8 shadow-md relative grid grid-rows-[1fr]">
   <Prose class="flex flex-col gap-4 prose-headings:m-0">
     <h3>{title}</h3>
     <p class="flex-1 mb-0" >{description}</p>
     <div class="mb-4">
       <h4 class="text-lg font-semibold mb-2">Technologies used</h4>
-      <div class="flex gap-1 justify-center pt-3">
-        {iconsToRender.map(iconName => (
-          <Icon name={iconName} class="h-11 w-11" />
+      <div class="flex gap-2 justify-center pt-3">
+        {technologiesUsed.map(iconName => (
+          <Icon name={technologies[iconName].icon} class="h-11 w-11" />
         ))}
       </div>
     </div>
