@@ -9,6 +9,6 @@ const { class: additionalClass = '' } = Astro.props;
 
 ---
 
-<Prose class={`mx-auto prose-headings:text-center ${additionalClass}`}>
+<Prose class={`mx-auto ${additionalClass}`}>
     <slot/>
 </Prose>
