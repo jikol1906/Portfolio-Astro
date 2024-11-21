@@ -6,9 +6,9 @@ import { technologies } from '../../constants/Technologies';
 
 ---
 
-<ul class="not-prose py-4 flex flex-wrap gap-1 sm:gap-2 justify-center md:justify-start">
+<ul class="not-prose py-4 flex flex-wrap gap-1 sm:gap-2">
   {Object.values(technologies).map((tech) => (
-    <li class="bg-dark py-2 px-4 sm:py-3 md:py-4 md:px-5 flex rounded-custom-sm md:rounded-custom-xl items-center gap-3 text-xs sm:text-sm md:text-base">
+    <li class="bg-dark py-2 px-4 sm:py-3 md:py-4 md:px-5 flex rounded-custom-sm md:rounded-custom-xl items-center gap-3 text-sm md:text-base">
       <Icon name={tech.icon} class="w-4 h-4 md:w-8 md:h-8" />
       {tech.name}
     </li>
