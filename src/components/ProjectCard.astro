@@ -25,7 +25,7 @@ const { title, description, websiteUrl, githubUrl, technologiesUsed } = Astro.pr
     <h3>{title}</h3>
     <p class="flex-1 mb-0" >{description}</p>
     <div class="mb-4">
-      <h4 class="text-lg font-semibold mb-2">Technologies used</h4>
+      <h4 class="text-lg font-semibold mb-2">Key technologies used</h4>
       <div class="flex gap-2 justify-center pt-3">
         {technologiesUsed.map(iconName => (
           <Icon name={technologies[iconName].icon} class="h-11 w-11" />
