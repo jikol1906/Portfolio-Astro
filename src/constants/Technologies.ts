@@ -13,6 +13,7 @@ export const technologies = {
     cypress: { name: 'Cypress', icon: 'vscode-icons:file-type-cypress' },
     playwright: { name: 'Playwright', icon: 'vscode-icons:file-type-playwright' },
     sass: { name: 'Sass', icon: 'vscode-icons:file-type-sass' },
+    figma: { name: 'Figma', icon: 'logos:figma' },
     svelte: { name: 'Svelte', icon: 'vscode-icons:file-type-svelte' },
     firebase: { name: 'Firebase', icon: 'vscode-icons:file-type-firebase' },
     netlify: { name: 'Netlify', icon: 'vscode-icons:file-type-netlify' },
