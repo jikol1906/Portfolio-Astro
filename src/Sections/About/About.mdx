@@ -1,6 +1,7 @@
 import Section from '../../layouts/Section.astro';
 import Technologies from './Technologies.astro';
 import Prose from '../../layouts/Prose.astro';
+import ListItem from './ListItem.astro';
 
 <Section addTopPadding={false} id="about" class="bg-secondary">
   <Prose class="mx-auto ">
@@ -14,29 +15,26 @@ import Prose from '../../layouts/Prose.astro';
     <Technologies />
 
     ### Professional Experience
-    #### iComps GmbH <br />
-    <time dateTime="2022">2022</time> - <time dateTime="2024">2024</time> <br />
-    iComps GmbH is a FinTech company specializing in asset controlling and reporting software for asset managers, family
-    offices, banks, tax advisors, and trustees. Their flagship product, the amc-Services platform, provides solutions
-    for efficient asset management, reporting, and financial accounting. At iComps, I improved the efficiency of the
-    React-based application by implementing robust features and streamlined the QA process by designing and running
-    comprehensive end-to-end tests using Cypress and Playwright.
+    - <ListItem from='2022' to='2024' title='iComps GmbH'
+                description='iComps GmbH is a FinTech company specializing in asset controlling and reporting software for asset managers, family offices, banks, tax advisors, and trustees. Their flagship product, the amc-Services platform, provides solutions for efficient asset management, reporting, and financial accounting. At iComps, I improved the efficiency of the React-based application by implementing robust features and streamlined the QA process by designing and running comprehensive end-to-end tests using Cypress and Playwright.' />
 
+    <div className="grid md:grid-cols-3">
+      <div className="md:col-span-2">
+        ### Education
+        - <ListItem from='2020' to='2022' title='Technical University of Denmark (DTU)'
+                    description='MSc in Computer Science and Engineering' />
+        - <ListItem from='2017' to='2019' title='Technical University of Denmark (DTU)'
+                    description='BSc in Software Technology' />
+      </div>
 
-    ### Education
-    #### Technical University of Denmark (DTU)
-    <time dateTime="2020">2020</time> - <time dateTime="2022">2022</time> <br />
-    <em> MSc in Computer Science and Engineering</em>
+      <div>
+        ### Languages spoken
+        - <ListItem title="Danish" description="Native Language" />
+        - <ListItem title="English" description="Fluent" />
+        - <ListItem title="German" description="C2" />
+      </div>
+    </div>
 
-
-    #### Technical University of Denmark (DTU)
-    <time dateTime="2017">2017</time> - <time dateTime="2020">2020</time> <br />
-    <em>BSc in Software Technology</em>
-
-    ### Languages spoken
-    - **Danish**<br/><em>Native language</em>
-    - **English**<br/><em>Fluent</em>
-    - **German**<br/><em>C2</em>
 
   </Prose>
 </Section>

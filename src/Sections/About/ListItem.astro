@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  from?: string;
+  to?: string;
+}
+
+const { from, to, title, description } = Astro.props;
+
+console.log({ from, to, title, description });
+---
+
+{
+  from && (
+    <>
+      <time datetime={from}>{from}</time> - <time datetime={to}>{to}</time>
+    </>
+  )
+}
+<h4 class="my-0">{title}</h4>
+<p class="mt-0">{description}</p>
