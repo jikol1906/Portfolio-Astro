@@ -40,3 +40,28 @@ const { title } = Astro.props;
     <slot />
   </body>
 </html>
+
+
+<script>
+  import gsap from 'gsap';
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger)
+
+  document.querySelectorAll(`
+    .prose:not([data-dont-animate] .prose) :where(h2,h3,h4,p,ul):not(:where(li *,[data-dont-animate])),
+    [data-animate]
+`).forEach(child => {
+    gsap.from(child, {
+      scrollTrigger: {
+        trigger: child,
+        start:'top 70%',
+      },
+      y:40,
+      ease: "elastic.out(1,0.7)",
+      duration: 2.5,
+      opacity: 0,
+      stagger: 0.02,
+    })
+  })
+</script>
