@@ -3,15 +3,15 @@ import { Icon } from "astro-icon/components";
 import { technologies, type Size } from "../../constants/Technologies";
 
 const iconClasses : Record<Size, string> = {
-  small : 'h-4 w-4 md:h-10 md:w-10',
-  medium: 'h-7 w-7 md:h-16 md:w-16',
-  big: 'h-10 w-10 md:h-24 md:w-24'
+  small : 'h-10 w-10 sm:h-10 sm:w-10',
+  medium: 'h-10 w-10 sm:h-16 sm:w-16',
+  big: 'h-10 w-10 sm:h-24 sm:w-24'
 }
 
-const iconSpan : Record<Size, string> = {
-  small: 'col-span-3',
-  medium: 'col-span-4',
-  big: 'col-span-6',
+const liClassses : Record<Size, string> = {
+  small: 'sm:col-span-3',
+  medium: 'sm:col-span-4',
+  big: 'sm:col-span-6',
 }
 ---
 
@@ -22,7 +22,7 @@ const iconSpan : Record<Size, string> = {
 >
   {
     Object.values(technologies).map((tech) => (
-      <li class={`flex flex-col items-center gap-3 rounded-custom-sm bg-dark px-4 py-2 text-sm sm:py-3 md:rounded-custom-xl md:px-5 md:py-4 md:text-base ${iconSpan[tech.size]}`}>
+      <li class={`flex flex-col items-center gap-3 rounded-custom-sm bg-dark px-4 py-2 text-sm sm:py-3 md:rounded-custom-xl md:px-5 md:py-4 md:text-base col-span-6 ${liClassses[tech.size]}`}>
         <Icon name={tech.icon} class={iconClasses[tech.size]} />
         {tech.name}
       </li>
@@ -44,12 +44,10 @@ const iconSpan : Record<Size, string> = {
       trigger: ul,
       start: "top 70%"
     },
-    y: (idx) => [-30, 30, 0, 0, 30, -30, 0, 0][idx % 8],
-    x: (idx) => [0, 0, 30, -30, 0, 0, -30, 30][idx % 8],
+    y: 50,
     opacity: 0,
     ease: "elastic.out(1, 0.5)",
     duration: 2,
-    scale: 0.7,
     stagger: 0.05
   });
 </script>
