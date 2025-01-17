@@ -1,3 +1,5 @@
+const plugin = require('tailwindcss/plugin')
+
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
@@ -23,11 +25,16 @@ export default {
           '0%': { opacity: '0', transform: 'translateX(50px)' },
           '100%': { opacity: '1', transform: 'translateX(0)' },
         },
+        fadeInTop: {
+          '0%': { opacity: '0', transform: 'translateY(50px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
       animation: {
         float: 'float 3s ease-in-out infinite',
-        fadeInLeft: 'fadeInLeft 1s ease-out forwards',
-        fadeInRight: 'fadeInRight 1s ease-out forwards',
+        fadeInLeft: 'fadeInLeft ease-out both',
+        fadeInRight: 'fadeInRight ease-out both',
+        fadeInTop: 'fadeInTop ease-out both',
       },
       borderRadius: {
         "custom-xl": "0 1rem 0 1rem", // Customizing the corners (tr, tl, br, bl).
@@ -49,5 +56,27 @@ export default {
       })
     }
   },
-  plugins: [require("@tailwindcss/typography")]
+  plugins: [
+    require("@tailwindcss/typography"),
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'animate-delay': (value) => ({
+            animationDelay: value,
+          }),
+        },
+        { values: theme('transitionDelay') }
+      )
+    }),
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'animate-duration': (value) => ({
+            animationDuration: value,
+          }),
+        },
+        { values: theme('transitionDuration') }
+      )
+    }),
+  ]
 };
