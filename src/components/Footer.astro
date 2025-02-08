@@ -1,17 +1,21 @@
 ---
-// Copyright.astro
-
 import Prose from "../layouts/Prose.astro";
-const { name = "Boris Grunwald", additionalText = "All rights reserved." } =
-  Astro.props;
-const currentYear = new Date().getFullYear();
+const { name = "Boris Grunwald", additionalText = "All rights reserved." } = Astro.props;
 ---
 
 <footer data-dont-animate class="text-center text-sm text-gray-500 flex justify-center py-4">
   <Prose>
     <p>
-      © {currentYear}
+      © <span id="current-year"></span>
       <span class="font-semibold">{name}</span>. {additionalText}
     </p>
   </Prose>
 </footer>
+
+<script>
+  // Ensure this script runs in the browser
+  const yearElement = document.getElementById('current-year');
+  if (yearElement) {
+    yearElement.textContent = String(new Date().getFullYear());
+  }
+</script>
