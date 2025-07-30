@@ -1,1 +1,50 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+
+
+/* 3. Define custom keyframes (these are standard CSS) */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeInLeft {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  0% { opacity: 0; transform: translateX(50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInTop {
+  0% { opacity: 0; transform: translateY(50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* 4. Configure your theme using CSS variables inside @theme */
+@theme {
+  /* Colors */
+  --color-main: #182C72;
+  --color-secondary: #0C216B;
+  --color-tertiary: #37DEAD;
+  --color-dark: #011A51;
+  --color-white: #fff;
+  --color-black: #000;
+
+  /* Font Family */
+  --font-sans: "Poppins", "sans-serif";
+
+  /* Border Radius */
+  --radius-custom-xl: 0 1rem 0 1rem;
+  --radius-custom-md: 0 0.6rem 0 0.6rem;
+  --radius-custom-sm: 0 0.3rem 0 0.3rem;
+
+  /* Animation Shorthands */
+  --animate-float: float 3s ease-in-out infinite;
+  --animate-fadeInLeft: fadeInLeft ease-out both;
+  --animate-fadeInRight: fadeInRight ease-out both;
+  --animate-fadeInTop: fadeInTop ease-out both;
+}

@@ -1,6 +1,6 @@
 export const technologies = {
   react: { name: "React", icon: "logos:react", size: 'big' },
-  css: { name: "CSS", icon: "vscode-icons:file-type-css", size: 'big' },
+  css: { name: "CSS", icon: "vscode-icons:file-type-css2", size: 'big' },
   html: { name: "HTML", icon: "vscode-icons:file-type-html", size: 'medium' },
   javascript: { name: "Javascript", icon: "vscode-icons:file-type-js", size: 'medium' },
   typescript: { name: "Typescript", icon: "vscode-icons:file-type-typescript", size: 'medium' },
