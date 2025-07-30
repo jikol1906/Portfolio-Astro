@@ -7,6 +7,7 @@ import { Icon } from 'astro-icon/components';
 export interface Props {
   title: string;
   description: string;
+  noteToDescription?: string;
   websiteUrl: string;
   githubUrl: string;
   technologiesUsed: TechnologyName[]
@@ -14,7 +15,7 @@ export interface Props {
 
 
 
-const { title, description, websiteUrl, githubUrl, technologiesUsed } = Astro.props as Props;
+const { title, description, websiteUrl, githubUrl, technologiesUsed, noteToDescription } = Astro.props as Props;
 
 
 
@@ -23,7 +24,10 @@ const { title, description, websiteUrl, githubUrl, technologiesUsed } = Astro.pr
 <div data-animate class="bg-dark min-h-[400px] rounded-custom-xl text-center bg-[url('/img/card-bg.svg')] bg-contain bg-no-repeat p-8 shadow-md relative grid grid-rows-[1fr]">
   <Prose class="flex flex-col gap-4 prose-headings:m-0">
     <h3>{title}</h3>
-    <p class="flex-1 mb-0" >{description}</p>
+    <p class="flex-1 mb-0" >
+      {description}
+    </p>
+    {noteToDescription && <small class="text-gray-400">{noteToDescription}</small>}
     <div class="mb-4">
       <h4 class="text-lg font-semibold mb-2">Key technologies used</h4>
       <div class="flex gap-2 justify-center pt-3">

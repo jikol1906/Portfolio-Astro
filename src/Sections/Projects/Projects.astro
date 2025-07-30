@@ -1,66 +1,61 @@
 ---
-import ProjectCard from "../../components/ProjectCard.astro";
+import ProjectCard, { type Props as ProjectCardProps } from "../../components/ProjectCard.astro";
 import type { TechnologyName } from "../../constants/Technologies";
 import ProseTextCenter from "../../layouts/ProseTextCenter.astro";
 import Section from "../../layouts/Section.astro";
 
-type Project = {
-  title: string,
-  description: string,
-  websiteUrl: string,
-  githubUrl: string,
-  technologies: Array<TechnologyName>,
-}
+type Project = ProjectCardProps
 
 const projects : Project[] = [
   {
     title: "Sentence Guesser",
     description: "Sentence Guesser works by using AI to generate sentences translation challenges based on words you are currently practising",
+    noteToDescription: "only works with german at the moment",
     websiteUrl: "https://inspiring-mooncake-9dde2e.netlify.app/",
     githubUrl: "https://github.com/jikol1906/sentence-guesser-react",
-    technologies: ["react", "typescript"],
+    technologiesUsed: ["react", "typescript", "tailwind"],
   },
   {
     title: "Visual Sorter",
     description: "Tool I made as a part of a school exercise to visualize sorting algorithms. Supports Insertion Sort, Selection Sort and Bubble Sort",
     websiteUrl: "https://jolly-mayer-7c5bfd.netlify.app/",
     githubUrl: "https://github.com/jikol1906/visualSorter",
-    technologies: ["typescript"],
+    technologiesUsed: ["typescript"],
   },
   {
     title: "Fretboard Workout",
     description: "Tool I made to help myself learn all the notes on a guitar's fretboard",
     websiteUrl: "https://infallible-goodall-e54fc8.netlify.app/",
     githubUrl: "https://github.com/jikol1906/fretboard-workout",
-    technologies: ["react", "typescript"],
+    technologiesUsed: ["react", "typescript"],
   },
   {
     title: "Personal Website",
     description: "The website you're on. Made using Astro.js",
     websiteUrl: "",
     githubUrl: "https://github.com/jikol1906/Portfolio-Astro",
-    technologies: ["astro", 'tailwind'],
+    technologiesUsed: ["astro", 'tailwind'],
   },
   {
     title: "Guitar Note Finder",
     description: "Another tool made for learning the fretboard of a guitar",
     websiteUrl: "https://chic-dango-f300b6.netlify.app/",
     githubUrl: "https://github.com/jikol1906/findNotePractice",
-    technologies: ["javascript"],
+    technologiesUsed: ["javascript"],
   },
   {
     title: "Rock Paper Scissors Game",
     description: "Game I made as part of a Frontendmentors.io challenge",
     websiteUrl: "https://frosty-hodgkin-050557.netlify.app/",
     githubUrl: "https://github.com/jikol1906/rock-paper-scissor-react/",
-    technologies: ["react"],
+    technologiesUsed: ["react"],
   },
   {
     title: "SES-Quiz",
     description: "Quiz I made for Universität Erfurt as a part of International Developmental Language Disorder Awareness Day",
     websiteUrl: "https://jikol1906.github.io/quiz/",
     githubUrl: "https://github.com/jikol1906/quiz",
-    technologies: ["javascript"],
+    technologiesUsed: ["javascript"],
   },
 ];
 ---
@@ -76,7 +71,8 @@ const projects : Project[] = [
         description={project.description}
         websiteUrl={project.websiteUrl}
         githubUrl={project.githubUrl}
-        technologiesUsed={project.technologies}
+        noteToDescription={project.noteToDescription}
+        technologiesUsed={project.technologiesUsed}
       />
     ))}
   </div>
